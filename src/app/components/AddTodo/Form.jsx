@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { InputBase, Paper, IconButton, Grid, Input, OutlinedInput } from '@material-ui/core';
+import { IconButton, Grid, OutlinedInput } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import { connect } from 'react-redux';
 import { addTodo as addTodoAction } from '../../store/actions';
