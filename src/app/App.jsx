@@ -6,7 +6,7 @@ import { Grid } from '@material-ui/core';
 const App = () => {
     return (
         <Grid container alignItems="center" justify="center" xs={12}>
-            <Grid direction="column"c container xs={6} spacing={2}>
+            <Grid direction="column" container xs={6} spacing={2}>
                 <Grid item>
                     <Form />
                 </Grid>

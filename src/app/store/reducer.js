@@ -20,7 +20,7 @@ export const todoReducer = (state = initialState, action) => {
             };
         case REMOVE_TODO:
             return omit(action.id, state);
-        case TOGGLE_TODO: 
+        case TOGGLE_TODO:
             const { completed, ...rest } = state[action.id];
 
             return {
