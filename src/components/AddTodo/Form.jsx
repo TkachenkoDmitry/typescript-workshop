@@ -4,8 +4,11 @@ import AddIcon from '@material-ui/icons/Add';
 
 const Form = () => {
   const [todo, setTodo] = useState('');
+  const handleSubmit = e => {
+    e.preventDefault()
+  }
   return (
-    <Paper component="form">
+    <Paper component="form" onSubmit={handleSubmit}>
       <InputBase
         label="New Todo" value={todo}
         onChange={(e) => setTodo(e.target.value)}
