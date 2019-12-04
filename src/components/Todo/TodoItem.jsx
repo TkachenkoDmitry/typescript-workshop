@@ -1,11 +1,17 @@
 import React from 'react'
+import { Card, Avatar } from '@material-ui/core';
+import HighlightOffOutlinedIcon from '@material-ui/icons/HighlightOffOutlined';
 
-export const TodoItem = ({ id, title, onDelete, toggleTodo }) => {
+const TodoItem = ({ id, title, onDelete, toggleTodo }) => {
   return (
-    <div>
+    <Card>
       <span onClick={() => toggleTodo(id)}>mark completed</span>
       <span>{title}</span>
-      <button onClick={() => onDelete(id)}>X</button>
-    </div>
+      <Avatar onClick={() => onDelete(id)}>
+        <HighlightOffOutlinedIcon />
+      </Avatar>
+    </Card>
   )
 }
+
+export default TodoItem
