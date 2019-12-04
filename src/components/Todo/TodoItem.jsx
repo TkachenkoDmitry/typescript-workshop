@@ -1,15 +1,16 @@
 import React from 'react'
-import { Card, Avatar } from '@material-ui/core';
+import { Card, IconButton, Checkbox } from '@material-ui/core';
 import HighlightOffOutlinedIcon from '@material-ui/icons/HighlightOffOutlined';
+import Typography from '@material-ui/core/Typography';
 
-const TodoItem = ({ id, title, onDelete, toggleTodo }) => {
+const TodoItem = ({ id, title, completed, onDelete, toggleTodo }) => {
   return (
     <Card>
-      <span onClick={() => toggleTodo(id)}>mark completed</span>
-      <span>{title}</span>
-      <Avatar onClick={() => onDelete(id)}>
+      <Checkbox onClick={() => toggleTodo(id)} checked={completed} />
+      <Typography variant="body1" component="span">{title}</Typography>
+      <IconButton color="danger" onClick={() => onDelete(id)}>
         <HighlightOffOutlinedIcon />
-      </Avatar>
+      </IconButton>
     </Card>
   )
 }
