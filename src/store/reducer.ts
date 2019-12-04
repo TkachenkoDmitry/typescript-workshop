@@ -1,12 +1,13 @@
 import uuid from 'uuid';
 import { omit } from 'lodash/fp';
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from './actions';
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, TodoAction } from './actions';
+import { Todos as TodoState } from './types';
 
-const initialState = {
-    "1": { id: '1', title: 'first todo' },
+const initialState: TodoState = {
+    '1': { id: '1', title: 'first todo', completed: false }
 };
 
-export const todoReducer = (state = initialState, action) => {
+export const todoReducer = (state: TodoState = initialState, action: TodoAction): TodoState => {
     switch (action.type) {
         case ADD_TODO:
             const id = uuid();
@@ -20,16 +21,16 @@ export const todoReducer = (state = initialState, action) => {
             };
         case REMOVE_TODO:
             return omit(action.id, state);
-        case TOGGLE_TODO: 
+        case TOGGLE_TODO:
             const { completed, ...rest } = state[action.id];
 
             return {
                 ...state,
                 [action.id]: {
                     ...rest,
-                    completed: !completed,
+                    completed: !completed
                 }
-            }
+            };
         default:
             return state;
     }

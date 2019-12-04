@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import { InputBase, Paper, IconButton, Grid, Input, OutlinedInput } from '@material-ui/core';
+import { IconButton, Grid, OutlinedInput } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import { connect } from 'react-redux';
 import { addTodo as addTodoAction } from '../../store/actions';
 
-const Form = ({ addTodo }) => {
+export interface FormProps {
+    addTodo: (id : string) => void;
+}
+
+const Form = ({ addTodo }: FormProps) => {
     const [todo, setTodo] = useState('');
-    const handleSubmit = e => {
+
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         addTodo(todo);
         setTodo('');
@@ -15,10 +20,9 @@ const Form = ({ addTodo }) => {
     return (
         <Grid component="form" onSubmit={handleSubmit} container justify="center">
             <OutlinedInput
-                label="New Todo"
+                labelWidth={0}
                 value={todo}
                 onChange={e => setTodo(e.target.value)}
-                inputProps={{ 'aria-label': 'Add new Todo' }}
                 placeholder="New Todo"
             />
             <IconButton color="primary" aria-label="directions" type="submit">
@@ -29,5 +33,5 @@ const Form = ({ addTodo }) => {
 };
 
 export default connect(undefined, dispatch => ({
-    addTodo: value => dispatch(addTodoAction(value))
+    addTodo: (value: string) => dispatch(addTodoAction(value))
 }))(Form);

@@ -8,14 +8,22 @@ import {
 } from '../../store/actions';
 import { connect } from 'react-redux';
 
-const TodoItem = ({ id, title, completed, removeTodo, toggleTodo }) => {
+export interface TodoItemProps {
+    id: string;
+    title: string;
+    completed: boolean;
+    removeTodo: (id: string) => void;
+    toggleTodo: (id: string) => void;
+}
+
+const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed, removeTodo, toggleTodo }) => {
     return (
         <Card>
             <Checkbox onClick={() => toggleTodo(id)} checked={completed} />
             <Typography variant="body1" component="span">
                 {title}
             </Typography>
-            <IconButton color="danger" onClick={() => removeTodo(id)}>
+            <IconButton color="primary" onClick={() => removeTodo(id)}>
                 <HighlightOffOutlinedIcon />
             </IconButton>
         </Card>
@@ -23,6 +31,6 @@ const TodoItem = ({ id, title, completed, removeTodo, toggleTodo }) => {
 };
 
 export default connect(null, dispatch => ({
-    toggleTodo: id => dispatch(toggleTodoAction(id)),
-    removeTodo: id => dispatch(removeTodoAction(id))
+    toggleTodo: (id: string) => dispatch(toggleTodoAction(id)),
+    removeTodo: (id: string) => dispatch(removeTodoAction(id))
 }))(TodoItem);
