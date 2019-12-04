@@ -3,7 +3,7 @@ import { todoReducer } from './reducer';
 import { createStore } from 'redux';
 
 const todoApp = combineReducers({
-    todoReducer,
+    todos: todoReducer,
 });
 
 const store = createStore(todoApp);

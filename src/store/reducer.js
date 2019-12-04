@@ -1,7 +1,9 @@
 import { omit } from 'lodash/fp';
 import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from './actions';
 
-const initialState = {};
+const initialState = {
+    "wg": { id: 'wg', title: 'first todo' },
+};
 
 export const todoReducer = (state = initialState, action) => {
     switch (action.type) {

@@ -1,18 +1,24 @@
-import React from 'react'
-import TodoItem from './TodoItem'
+import React from 'react';
+import { map } from 'lodash/fp';
+import TodoItem from './TodoItem';
+import { connect } from 'react-redux';
+import { getTodos } from '../../selectors';
+
+const mapTodos = map(({ id, ...other }) => (
+  <TodoItem
+    key={id}
+    {...other}
+  />
+));
 
 const TodoList = ({ todos, onDelete, toggleTodo }) => (
   <div>
-    {todos.map(({ key, ...other }) => (
-      <TodoItem
-        key={key}
-        onDelete={onDelete}
-        toggleTodo={toggleTodo}
-        {...other}
-      />
-    )
-    )}
+    {mapTodos(todos)}
   </div>
 )
 
-export default TodoList;
+export default connect(
+  state => ({
+    todos: getTodos(state),
+  })
+)(TodoList);
