@@ -5,12 +5,15 @@ import AddIcon from '@material-ui/icons/Add';
 const Form = () => {
   const [todo, setTodo] = useState('');
   const handleSubmit = e => {
-    e.preventDefault()
+    e.preventDefault();
+    console.log(e);
   }
+
   return (
     <Paper component="form" onSubmit={handleSubmit}>
       <InputBase
-        label="New Todo" value={todo}
+        label="New Todo" 
+        value={todo}
         onChange={(e) => setTodo(e.target.value)}
         inputProps={{ 'aria-label': 'Add new Todo' }}
         placeholder="New Todo"
