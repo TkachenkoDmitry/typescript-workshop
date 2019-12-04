@@ -19,7 +19,7 @@ export const todoReducer = (state = initialState, action) => {
                 }
             };
         case REMOVE_TODO:
-            debugger; return omit(action.id, state);
+            return omit(action.id, state);
         case TOGGLE_TODO:
             const { completed, ...rest } = state[action.id];
 
