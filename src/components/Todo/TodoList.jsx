@@ -7,6 +7,7 @@ import { getTodos } from '../../selectors';
 const mapTodos = map(({ id, ...other }) => (
   <TodoItem
     key={id}
+    id={id}
     {...other}
   />
 ));

@@ -2,7 +2,7 @@ import { omit } from 'lodash/fp';
 import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from './actions';
 
 const initialState = {
-    "wg": { id: 'wg', title: 'first todo' },
+    "1": { id: '1', title: 'first todo' },
 };
 
 export const todoReducer = (state = initialState, action) => {
@@ -17,7 +17,7 @@ export const todoReducer = (state = initialState, action) => {
                 }
             };
         case REMOVE_TODO:
-            return omit(action.id, state);
+            debugger; return omit(action.id, state);
         case TOGGLE_TODO: 
             const { completed, ...rest } = state[action.id];
 

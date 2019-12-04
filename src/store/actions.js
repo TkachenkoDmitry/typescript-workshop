@@ -8,7 +8,7 @@ export const addTodo = ({ id, text }) => ({
 });
 
 export const removeTodo = id => ({
-    type: ADD_TODO,
+    type: REMOVE_TODO,
     id,
 });
 
