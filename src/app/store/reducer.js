@@ -10,7 +10,6 @@ export const todoReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TODO:
             const id = uuid();
-            debugger;
             return {
                 ...state,
                 [id]: {
@@ -21,7 +20,7 @@ export const todoReducer = (state = initialState, action) => {
             };
         case REMOVE_TODO:
             debugger; return omit(action.id, state);
-        case TOGGLE_TODO: 
+        case TOGGLE_TODO:
             const { completed, ...rest } = state[action.id];
 
             return {
