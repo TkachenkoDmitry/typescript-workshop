@@ -1,3 +1,4 @@
+import uuid from 'uuid';
 import { omit } from 'lodash/fp';
 import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from './actions';
 
@@ -8,11 +9,13 @@ const initialState = {
 export const todoReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TODO:
+            const id = uuid();
+            debugger;
             return {
                 ...state,
-                [action.id]: {
-                    id: action.id,
-                    text: action.text,
+                [id]: {
+                    id,
+                    title: action.title,
                     completed: false
                 }
             };
