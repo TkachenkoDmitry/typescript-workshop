@@ -21,7 +21,7 @@ const getPersonFullName = ({ name, lastName, middleName}: PersonWithMiddleName) 
 getPersonFullName({ name: 'John', lastName: 'Smith', middleName: undefined });
 
 
-// TODO: define Persons interface reusing interfaces from before and do that in single line
+// TODO: define Persons interface reusing interfaces from before and do that in a single line
 interface Persons {
 
 }
