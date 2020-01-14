@@ -1,6 +1,6 @@
 import { get } from 'lodash/fp';
 
-// TODO: Let's type our own get fucntion using generics
+// TODO: Let's type our own get function using generics
 const customGet = (obj, key)  => obj[key];
 
 const person = {
@@ -11,9 +11,9 @@ customGet(person, 'John'); // should show ts error
 customGet(person, 'name'); // should work fine
 
 
-// TODO: 
+// TODO: Type Persons interface accordingly, so comments below will be actually true
 interface Persons {
-    [key: string]
+
 }
 
 interface Person {
@@ -36,14 +36,14 @@ const evilMaxClone = {
     evilName: 'EvilMax',
 }
 
-const persons: Persons<Person> = {
+const persons: Persons = {
     john,
     max,
     evilMaxClone // this should throw error
 }
 
-const evilPersons: Persons<EvilPerson> = {
-    evilMaxClone,
+const evilPersons: Persons = {
+    evilMaxClone, // this should be okay
 }
 
 // TODO: type lodash get correctly 
@@ -60,7 +60,7 @@ const imageItem: ImageItem = {
 };
 
 const fakeImageItem = {
-    notId: 'I am fake',
+    notId: 'I am a fake',
 };
 
 getImageDescription(imageItem);
