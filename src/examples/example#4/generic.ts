@@ -46,12 +46,7 @@ const evilPersons: Persons = {
     evilMaxClone, // this should be okay
 }
 
-// TODO: type lodash get correctly 
-interface ImageItem {
-    id: string;
-    description: string;
-}
-
+// TODO: type lodash get correctly, create an interface if needed
 const getImageDescription = get('description');
 
 const imageItem: ImageItem = {
