@@ -1,5 +1,3 @@
-import { get } from 'lodash/fp';
-
 // TODO: Let's type our own get function using generics
 const customGet = (obj, key)  => obj[key];
 
