@@ -9,7 +9,7 @@ getFullName({ name: 'John', lastName: 'Smith' });
 
 // TODO: Create and type PersonWithAge as type alias. Type it so there will no errors.
 // Reuse name and last name from Person type without redefining it
-const getFullName = ({ name, lastName, age }: PersonWithAge) => `${name} ${lastName} is ${age} years old`;
+const getFullName2 = ({ name, lastName, age }: PersonWithAge) => `${name} ${lastName} is ${age} years old`;
 
 // TODO: In the next function both argument can be both string and number. Type it corretly
 const concatenateValues = (val1, val2) => `${val1}${val2}`;
